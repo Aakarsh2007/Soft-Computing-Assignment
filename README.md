@@ -2,7 +2,7 @@
 
 Swarm Study is an interactive Particle Swarm Optimization (PSO) lab built for Dr. Rahul Kumar Verma's Soft Computing assignment. It lets you watch a swarm of particles cooperate to minimize a two-dimensional objective function — combining each particle's own memory with the swarm's shared best discovery to converge on the global minimum.
 
-[Launch the simulator](https://aakarsh2007.github.io/Soft-Computing-Assignment/) · [Watch the 3:18 captioned demo](https://aakarsh2007.github.io/Soft-Computing-Assignment/demo.webm) · [Source repository](https://github.com/Aakarsh2007/Soft-Computing-Assignment)
+[Launch the simulator](https://swarmlab-nine.vercel.app/) · [Watch the 3:18 captioned demo](https://aakarsh2007.github.io/Soft-Computing-Assignment/demo.webm) · [Source repository](https://github.com/Aakarsh2007/Soft-Computing-Assignment)
 
 ---
 
