@@ -2,7 +2,7 @@
 
 Swarm Study is an interactive Particle Swarm Optimization lab for Dr. Rahul Kumar Verma’s soft computing assignment. It demonstrates how a swarm minimizes a two-dimensional objective using individual memory and a shared best position.
 
-[Launch the simulator](https://aakarsh2007.github.io/Soft-Computing-Assignment/) · [Source repository](https://github.com/Aakarsh2007/Soft-Computing-Assignment)
+[Launch the simulator](https://aakarsh2007.github.io/Soft-Computing-Assignment/) · [Watch the 3:18 captioned demo](https://aakarsh2007.github.io/Soft-Computing-Assignment/demo.webm) · [Source repository](https://github.com/Aakarsh2007/Soft-Computing-Assignment)
 
 ## Try the lab
 
