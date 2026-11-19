@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#10121c">
+<meta name="description" content="Explore particle swarm optimization with a live objective map, vector breakdown, and hand-worked verification.">
+<title>Swarm Study · Interactive PSO Lab</title>
+<link rel="stylesheet" href="style.css">
+<script defer src="pso.js"></script><script defer src="app.js"></script>
+</head>
+<body>
+<header class="top"><a class="brand" href="./"><span class="mark">✳</span> Swarm Study</a><nav><a href="#lab">Simulator</a><a href="#verification">Worked example</a><a href="https://github.com/Aakarsh2007/Soft-Computing-Assignment">Source ↗</a></nav></header>
+<main id="lab">
+<section class="intro"><div><p class="eyebrow">SOFT COMPUTING / INTERACTIVE LAB</p><h1>Particle Swarm<br class="mobile"> Optimization<span>.</span></h1><p>Follow a swarm as it searches for the lowest point on a landscape.</p></div><button id="load-hand" class="outline">Load worked example</button></section>
+<div class="workspace">
+<aside class="panel settings"><h2>Experiment</h2><form id="settings"><label>Objective<select name="problem"><option value="sphere">Sphere · single basin</option><option value="rastrigin">Rastrigin · many minima</option><option value="rosenbrock">Rosenbrock · curved valley</option></select></label><p id="formula" class="formula"></p><div class="inputs">
+<label>Particles<input type="number" name="count" min="2" max="60" required></label><label>Iterations<input type="number" name="iterations" min="1" max="200" required></label>
+<label>Inertia (w)<input type="number" name="w" min="0" max="1.4" step="0.01" required></label><label>Personal (c₁)<input type="number" name="c1" min="0" max="4" step="0.01" required></label>
+<label>Social (c₂)<input type="number" name="c2" min="0" max="4" step="0.01" required></label><label>Random seed<input type="number" name="seed" min="0" max="4294967295" required></label>
+</div><button class="primary apply">Apply parameters</button><p id="mode" class="muted"></p></form><div class="phase-info"><h3>One PSO iteration</h3><ol id="phases"><li>Calculate velocity</li><li>Move and evaluate</li><li>Update bests</li></ol></div></aside>
+<section class="panel map-panel"><div class="panel-title"><div><p class="eyebrow">SEARCH SPACE</p><h2 id="map-title">Objective landscape</h2></div><label class="toggle"><input id="trails" type="checkbox" checked> Trails</label></div>
+<canvas id="map" role="img" aria-label="Objective landscape and swarm positions. Use the particle selector for exact coordinates."></canvas>
+<div class="legend"><span class="dot particle">Particle</span><span class="dot leader">Swarm best</span><span class="dot optimum">Known optimum</span><span class="gradient">Low → high cost</span></div>
+<div class="transport"><button id="reset" title="Reset">Reset</button><button id="back" aria-label="Previous step">‹</button><button class="primary" id="play">▶ Play</button><button id="step">Step ›</button><label>Speed <select id="speed"><option value="1250">0.5×</option><option value="650" selected>1×</option><option value="250">3×</option></select></label></div>
+<label class="scrub"><span id="frame-label"></span><input id="scrub" type="range" min="0" value="0" aria-label="Timeline"></label>
+</section>
+<aside class="panel inspect"><div class="panel-title"><div><p class="eyebrow">LIVE INSPECTOR</p><h2 id="phase-title"></h2></div></div><p id="explanation" aria-live="polite"></p>
+<div class="stats"><div><span>Swarm best f</span><strong id="best-score"></strong></div><div><span>Current f</span><strong id="score"></strong></div></div>
+<label>Inspect particle<select id="particle"></select></label><dl id="details"></dl>
+<h3>Velocity breakdown</h3><p class="muted" id="vector-note"></p><div id="vectors"></div></aside>
+</div>
+<div class="lower">
+<section class="panel convergence"><div class="panel-title"><div><p class="eyebrow">PROGRESS</p><h2>Best cost over time</h2></div><span class="muted">log₁₀(1 + f)</span></div><canvas id="chart" role="img" aria-label="Best cost by completed iteration"></canvas></section>
+<section class="panel verify" id="verification"><p class="eyebrow">VERIFICATION</p><h2>Check one update by hand</h2><p>Minimize f(x,y) = x² + y². Start A at (2,1) with velocity (1,0) and B at (1,0) at rest. B starts as swarm best because 1 &lt; 5. Use w = 0.5, c₁ = c₂ = 1 and r₁ = r₂ = 0.5 in both coordinates.</p>
+<div class="calculation"><div>Inertia <b>0.5 × (1,0) = (0.5,0)</b></div><div>Personal pull <b>(0,0)</b></div><div>Social pull <b>0.5 × [(1,0) − (2,1)] = (−0.5,−0.5)</b></div><div>New state for A <b>v = (0,−0.5), x = (2,0.5), f = 4.25</b></div></div><p>A improves its personal best from 5 to 4.25. B stays at (1,0) and keeps swarm best at 1.</p><div id="check" class="check"></div><button id="show-result" class="outline">Show verified frame</button><h3 class="lecture-title">Lecture notes ? Problem 1</h3><p>Replay the first iteration of the one-dimensional f(x) = x? example, embedded along y = 0. P1 starts at x = 4 and follows the initial swarm best x = 2. Its velocity is 1.5 ? 0.86 ? (2 ? 4) = ?2.58, giving x = 1.42 and cost 2.0164. P2 becomes swarm best at x = ?1.125 with exact cost 1.265625.</p><button id="load-lecture" class="outline">Replay lecture example</button></section>
+</div></main><footer>Swarm Study · Particle Swarm Optimization</footer>
+</body></html>
